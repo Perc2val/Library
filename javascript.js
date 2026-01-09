@@ -23,18 +23,23 @@ function addBookToLibrary(title) {
     myLibrary.push(newBook);
 }
 addBookToLibrary()
-addBookToLibrary()
+
 
 
 function displayMyLibrary(){
     for (newBook in myLibrary) {
         const newCard = document.createElement("div");
+        newCard.classList.add("card")
         const heading = document.createElement("h2");
         heading.innerHTML = `${myLibrary[0].title}`;
         const author = document.createElement("p");
+        author.innerHTML = "Author: " + `${myLibrary[0].author}`;
         const pages = document.createElement("p");
+        pages.innerHTML = "Pages Count: " + `${myLibrary[0].pages}`;
         const read = document.createElement("input");
+        read.type = "checkbox";
         const label = document.createElement("label");
+        label.innerHTML = "Have you read this book?"
 
         
         newCard.appendChild(heading);
