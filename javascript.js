@@ -23,19 +23,20 @@ function addBookToLibrary(title) {
     myLibrary.push(newBook);
 }
 addBookToLibrary()
-
-
+addBookToLibrary()
+let i = 0;
 
 function displayMyLibrary(){
     for (newBook in myLibrary) {
+        
         const newCard = document.createElement("div");
         newCard.classList.add("card")
         const heading = document.createElement("h2");
-        heading.innerHTML = `${myLibrary[0].title}`;
+        heading.innerHTML = `${myLibrary[i].title}`;
         const author = document.createElement("p");
-        author.innerHTML = "Author: " + `${myLibrary[0].author}`;
+        author.innerHTML = "Author: " + `${myLibrary[i].author}`;
         const pages = document.createElement("p");
-        pages.innerHTML = "Pages Count: " + `${myLibrary[0].pages}`;
+        pages.innerHTML = "Pages Count: " + `${myLibrary[i].pages}`;
         const read = document.createElement("input");
         read.type = "checkbox";
         const label = document.createElement("label");
@@ -48,7 +49,7 @@ function displayMyLibrary(){
         newCard.appendChild(read);
         newCard.appendChild(label);
         hello.appendChild(newCard);
-        
+        i++;
     }
 }
 
