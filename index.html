@@ -7,10 +7,25 @@
     <title>Library</title>
 </head>
 <body>
-    <header class="">
-        <h2 class="">Library</h2>
+    <header class="" id="header">
+        <h2 class="heading">Library</h2>
+        <button class="addBook" id="addBook" type="button">Add new Book</button>
     </header>
-    <main id="test">
+    <div class="formBody togglenone" id="formBody">
+        <form action="" class="form" id="form">
+            <input type="text" class="addTitle" id="addTitle">
+            <label for="addTitle">Title</label>
+            <input type="text" class="addAuthor" id="addAuthor">
+            <label for="addAuthor">Auhtor</label>
+            <input type="number" class="addNumber" id="addNumber">
+            <label for="addNumber">Pages</label>
+            <input type="checkbox" class="addRead" id="addRead">
+            <label for="addRead">Have you read this Book?</label>
+            <button id="book">Add new Book</button>
+            <button id="stop" type="button">Stop</button>
+        </form>
+    </div>
+    <main class="" id="main">
         <div class="card">
             <h2>Percy Jackson</h2>
             <p>Author: Rick</p>
@@ -18,8 +33,8 @@
             <input type="checkbox" name="read" id="read">
             <label for="read">Have you read this book</label>
         </div>
-        
-        
+    
+
     </main>
     <script src="javascript.js"></script>
 </body>

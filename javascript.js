@@ -1,9 +1,33 @@
 const myLibrary = [];
-const hello = document.getElementById("test")
+const hello = document.getElementById("test");
+const addBook = document.getElementById("addBook");
+const formBody = document.getElementById("formBody");
+const header = document.getElementById("header");
+const main = document.getElementById("main");
+const stopp = document.getElementById("stop");
+const form = document.getElementById("form");
+const book = document.querySelector("#book");
+
+
+
+addBook.addEventListener("click", function() {
+    formBody.classList.add(`toggleflex`);
+    formBody.classList.remove(`togglenone`)
+    header.classList.add(`blur`);
+    main.classList.add(`blur`);
+}); 
+
+stopp.addEventListener("click", function(){
+    formBody.classList.remove(`toggleflex`);
+    formBody.classList.add(`togglenone`);
+    header.classList.remove(`blur`);
+    main.classList.remove(`blur`);
+})
+
 
 function Book(title, author, pages, read) {
     if (!new.target){
-        throw Error ("function call has to coontain new");
+        throw Error ("function call has to contain new");
     }
     this.title = title;
     this.author = author;
@@ -12,23 +36,41 @@ function Book(title, author, pages, read) {
     this.id = crypto.randomUUID();
 }
 
-function addBookToLibrary(title) {
-    title = prompt("Type in the title");
-    author = prompt("Type in the author");
-    pages = prompt("How many pages does the book have?")
-    read = prompt("have you read the book")
-
+function addBookToLibrary(title, author, pages, read) {
     let newBook = new Book(title, author, pages, read)
-  // take params, create a book then store it in the array
     myLibrary.push(newBook);
 }
-addBookToLibrary()
-addBookToLibrary()
+
 let i = 0;
 
-function displayMyLibrary(){
-    for (newBook in myLibrary) {
-        
+
+
+
+book.addEventListener("click", function(e) {
+    e.preventDefault();
+    const addTitle = document.getElementById("addTitle");
+    const addAuthor = document.getElementById("addAuthor");
+    const addNumber = document.getElementById("addNumber");
+    const checkbox = document.getElementById("addRead");
+    if (checkbox.checked == true){
+        read = "yes"
+    } else{
+        read = "no"
+    }
+    title = addTitle.value;
+    author = addAuthor.value;
+    pages = addNumber.value;
+
+    addBookToLibrary(title, author, pages, read);
+    form.reset();
+    formBody.classList.remove(`toggleflex`);
+    formBody.classList.add(`togglenone`);
+    header.classList.remove(`blur`);
+    main.classList.remove(`blur`);
+    displayMyLibrary()
+})
+
+function displayMyLibrary(){     
         const newCard = document.createElement("div");
         newCard.classList.add("card")
         const heading = document.createElement("h2");
@@ -48,15 +90,15 @@ function displayMyLibrary(){
         const label = document.createElement("label");
         label.innerHTML = "Have you read this book?"
 
-        
         newCard.appendChild(heading);
         newCard.appendChild(author);
         newCard.appendChild(pages);
         newCard.appendChild(read);
         newCard.appendChild(label);
-        hello.appendChild(newCard);
+        main.appendChild(newCard);
         i++;
-    }
 }
 
-displayMyLibrary()
+
+
+console.log(myLibrary)

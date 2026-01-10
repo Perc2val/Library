@@ -6,7 +6,9 @@
 
 body{
     display: grid;
+    position: relative;
     grid-template: 1fr 8fr / 1fr;
+    
 }
 header{
     display: flex;
@@ -14,7 +16,16 @@ header{
     justify-content: center;
     align-items: center;
     padding: 32px;
+    gap: 30px;
     background-color: antiquewhite;
+    
+}
+.addBook{
+    padding: 20px;
+    background-color: aliceblue;
+}
+.addBook:hover{
+    padding: 20px 22px;
 }
 main{
     display: grid;
@@ -23,6 +34,7 @@ main{
     grid-auto-flow: row;
     gap: 10px;
     padding: 20px;
+    
 }
 
 .card{
@@ -36,4 +48,31 @@ main{
     padding: 12px;
     border: solid 1px black;
     border-radius: 6px;
+}
+
+.formBody{
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    filter:blur(none);
+    z-index: 2; 
+}
+.toggleflex{
+    display: flex;
+}
+.togglenone{
+    display: none;
+}
+.form{
+    display: grid;
+    grid-template: 1fr 1fr 1fr / 1f 1fr;
+    padding: 20px 50px;
+    border: solid 1px black;
+    border-radius: 12px;
+}
+
+.blur{
+    filter: blur(3px);
 }
