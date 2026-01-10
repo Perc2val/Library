@@ -39,6 +39,12 @@ function displayMyLibrary(){
         pages.innerHTML = "Pages Count: " + `${myLibrary[i].pages}`;
         const read = document.createElement("input");
         read.type = "checkbox";
+        if (`${myLibrary[i].read}` == "yes") {
+            read.checked = true;
+        } else {
+            read.checked = false; 
+        }
+          
         const label = document.createElement("label");
         label.innerHTML = "Have you read this book?"
 
